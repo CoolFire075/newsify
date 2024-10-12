@@ -9,6 +9,6 @@ part 'news_main_model.freezed.dart';
 class NewsMainModel with _$NewsMainModel{
   factory NewsMainModel({
     NewsPaginationModel? pagination,
-    List<NewsDataModel?>? data,
+    List<NewsDataModel>? data,
 }) = _NewsMainModel;
 }

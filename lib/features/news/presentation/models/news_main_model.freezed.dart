@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NewsMainModel {
   NewsPaginationModel? get pagination => throw _privateConstructorUsedError;
-  List<NewsDataModel?>? get data => throw _privateConstructorUsedError;
+  List<NewsDataModel>? get data => throw _privateConstructorUsedError;
 
   /// Create a copy of NewsMainModel
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +32,7 @@ abstract class $NewsMainModelCopyWith<$Res> {
           NewsMainModel value, $Res Function(NewsMainModel) then) =
       _$NewsMainModelCopyWithImpl<$Res, NewsMainModel>;
   @useResult
-  $Res call({NewsPaginationModel? pagination, List<NewsDataModel?>? data});
+  $Res call({NewsPaginationModel? pagination, List<NewsDataModel>? data});
 
   $NewsPaginationModelCopyWith<$Res>? get pagination;
 }
@@ -63,7 +63,7 @@ class _$NewsMainModelCopyWithImpl<$Res, $Val extends NewsMainModel>
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<NewsDataModel?>?,
+              as List<NewsDataModel>?,
     ) as $Val);
   }
 
@@ -90,7 +90,7 @@ abstract class _$$NewsMainModelImplCopyWith<$Res>
       __$$NewsMainModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({NewsPaginationModel? pagination, List<NewsDataModel?>? data});
+  $Res call({NewsPaginationModel? pagination, List<NewsDataModel>? data});
 
   @override
   $NewsPaginationModelCopyWith<$Res>? get pagination;
@@ -120,7 +120,7 @@ class __$$NewsMainModelImplCopyWithImpl<$Res>
       data: freezed == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<NewsDataModel?>?,
+              as List<NewsDataModel>?,
     ));
   }
 }
@@ -128,14 +128,14 @@ class __$$NewsMainModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$NewsMainModelImpl implements _NewsMainModel {
-  _$NewsMainModelImpl({this.pagination, final List<NewsDataModel?>? data})
+  _$NewsMainModelImpl({this.pagination, final List<NewsDataModel>? data})
       : _data = data;
 
   @override
   final NewsPaginationModel? pagination;
-  final List<NewsDataModel?>? _data;
+  final List<NewsDataModel>? _data;
   @override
-  List<NewsDataModel?>? get data {
+  List<NewsDataModel>? get data {
     final value = _data;
     if (value == null) return null;
     if (_data is EqualUnmodifiableListView) return _data;
@@ -174,12 +174,12 @@ class _$NewsMainModelImpl implements _NewsMainModel {
 abstract class _NewsMainModel implements NewsMainModel {
   factory _NewsMainModel(
       {final NewsPaginationModel? pagination,
-      final List<NewsDataModel?>? data}) = _$NewsMainModelImpl;
+      final List<NewsDataModel>? data}) = _$NewsMainModelImpl;
 
   @override
   NewsPaginationModel? get pagination;
   @override
-  List<NewsDataModel?>? get data;
+  List<NewsDataModel>? get data;
 
   /// Create a copy of NewsMainModel
   /// with the given fields replaced by the non-null parameter values.

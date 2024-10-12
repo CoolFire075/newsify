@@ -68,5 +68,9 @@
   "portuguese" : "Португальский",
   "russian" : "Русский",
   "swedish" : "Шведский",
-  "chinese" : "Китайский"
+  "chinese" : "Китайский",
+
+  "settings" : "Настройки",
+  "change_language" : "Изменить язык",
+  "change_country": "Изменить страну"
 }

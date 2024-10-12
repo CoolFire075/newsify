@@ -719,6 +719,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Настройки`
+  String get settings {
+    return Intl.message(
+      'Настройки',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Изменить язык`
+  String get change_language {
+    return Intl.message(
+      'Изменить язык',
+      name: 'change_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Изменить страну`
+  String get change_country {
+    return Intl.message(
+      'Изменить страну',
+      name: 'change_country',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

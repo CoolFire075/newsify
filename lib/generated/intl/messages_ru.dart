@@ -30,6 +30,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "brazil": MessageLookupByLibrary.simpleMessage("Бразилия"),
         "bulgaria": MessageLookupByLibrary.simpleMessage("Болгария"),
         "canada": MessageLookupByLibrary.simpleMessage("Канада"),
+        "change_country":
+            MessageLookupByLibrary.simpleMessage("Изменить страну"),
+        "change_language":
+            MessageLookupByLibrary.simpleMessage("Изменить язык"),
         "china": MessageLookupByLibrary.simpleMessage("Китай"),
         "chinese": MessageLookupByLibrary.simpleMessage("Китайский"),
         "choose_country":
@@ -76,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "saudi_arabia":
             MessageLookupByLibrary.simpleMessage("Саудовская Арабия"),
         "serbia": MessageLookupByLibrary.simpleMessage("Сербия"),
+        "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "singapore": MessageLookupByLibrary.simpleMessage("Сингапур"),
         "slovakia": MessageLookupByLibrary.simpleMessage("Словакия"),
         "slovenia": MessageLookupByLibrary.simpleMessage("Словения"),
