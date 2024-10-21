@@ -11,7 +11,7 @@ class NewsRepositoryImpl implements NewsRepository{
 
   @override
   Future<NewsMainData?> fetchNewsData({required String query}) async {
-    final data = await _newsApi.fetchForecastData(query: query);
+    final data = await _newsApi.fetchNewsData(query: query);
     if(data == null) return null;
     return _newsMapper.mapNewsData(data);
     }

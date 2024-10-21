@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:newsify/core/navigation/routes/country_route.dart';
 import 'package:newsify/core/navigation/routes/language_route.dart';
-import 'package:newsify/features/news/presentation/models/news_main_model.dart';
 
 import '../../generated/l10n.dart';
 import '../news/presentation/bloc/news_bloc.dart';
@@ -56,10 +55,9 @@ class HomePage extends StatelessWidget {
             return ListView(
               children: [
                 if (data != null)
-                  ...data
-                     .map((e) => _NewsWidget(
-                            data: e,
-                          ))
+                  ...data.map((e) => _NewsWidget(
+                        data: e,
+                      ))
               ],
             );
           },
@@ -92,7 +90,10 @@ class _SettingsTitleWidget extends StatelessWidget {
       children: [
         Text(
           S.of(context).settings,
-          style: TextStyle(fontSize: 35),
+          style: const TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ],
     );
@@ -115,7 +116,7 @@ class _ChangeCountryWidget extends StatelessWidget {
           },
           child: Text(
             S.of(context).change_country,
-            style: TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 30),
           ),
         ),
       ],
@@ -139,7 +140,7 @@ class _ChangeLanguageWidget extends StatelessWidget {
           },
           child: Text(
             S.of(context).change_language,
-            style: TextStyle(fontSize: 30),
+            style: const TextStyle(fontSize: 30),
           ),
         ),
       ],

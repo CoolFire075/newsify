@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:newsify/features/language/presentation/bloc/language_bloc.dart';
 import 'package:newsify/features/news/presentation/models/language_model.dart';
 
-import '../../core/di/dependency_injection.dart';
-import '../../generated/l10n.dart';
-import '../news/presentation/bloc/news_bloc.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../generated/l10n.dart';
+import '../../../news/presentation/bloc/news_bloc.dart';
 
 class LanguagePage extends StatelessWidget {
   const LanguagePage({super.key});
@@ -12,19 +14,24 @@ class LanguagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<NewsBloc>()..add(NewsLanguageLoaded()),
-      child: Scaffold(
+      create: (context) => getIt<LanguageBloc>()..add(LanguageLoaded()),
+      child: BlocListener<LanguageBloc, LanguageState>(
+        listenWhen: (previous, current) => previous.needPop != current.needPop,
+  listener: (context, state) {
+    if (state.needPop) {
+      context.pop();
+    }
+  },
+  child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Expanded(
-            child: Text(
-              S.of(context).choose_language,
-              style: const TextStyle(fontSize: 35),
-            ),
+          title: Text(
+            S.of(context).choose_language,
+            style: const TextStyle(fontSize: 35),
           ),
           centerTitle: true,
         ),
-        body: BlocBuilder<NewsBloc, NewsState>(
+        body: BlocBuilder<LanguageBloc, LanguageState>(
           builder: (context, state) {
             return ListView(
               children: state.languageModels
@@ -37,6 +44,7 @@ class LanguagePage extends StatelessWidget {
           },
         ),
       ),
+),
     );
   }
 }
@@ -51,7 +59,7 @@ class _LanguageButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<NewsBloc>();
+    final bloc = context.read<LanguageBloc>();
     return Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: ElevatedButton(

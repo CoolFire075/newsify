@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:newsify/features/news/presentation/bloc/news_bloc.dart';
 
-import '../../core/di/dependency_injection.dart';
-import '../../generated/l10n.dart';
-import '../news/presentation/models/country_model.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../generated/l10n.dart';
+import '../../../news/presentation/models/country_model.dart';
+import '../bloc/country_bloc.dart';
 
 class CountryPage extends StatelessWidget {
   const CountryPage({super.key});
@@ -13,45 +13,71 @@ class CountryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<NewsBloc>()..add(NewsCountryLoaded()),
-      child: Scaffold(
-        appBar: AppBar(
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: IconButton(
-                  color: Colors.white,
-                  onPressed: () {
-                    context.pop(true);
-                  },
-                  icon: const Icon(
-                    Icons.save,
-                    size: 30,
-                  ),
-                ))
-          ],
-          backgroundColor: Colors.blue,
-          title: Expanded(
-            child: Text(
+      create: (context) => getIt<CountryBloc>()..add(CountryLoaded()),
+      child: BlocListener<CountryBloc, CountryState>(
+        listenWhen: (previous, current) => previous.needPop != current.needPop,
+        listener: (context, state) {
+          if (state.needPop) {
+            context.pop();
+          }
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            actions: [IconButton(onPressed: () {}, icon: _SaveButton())],
+            backgroundColor: Colors.blue,
+            title: Text(
               S.of(context).choose_country,
               style: const TextStyle(fontSize: 35),
             ),
+            centerTitle: true,
           ),
-          centerTitle: true,
+          body: const _Body(),
+          floatingActionButton: const _SelectAllButton(),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         ),
-        body: BlocBuilder<NewsBloc, NewsState>(
-          builder: (context, state) {
-            return ListView(
-              children: state.countryModels
-                  .map((e) => _CountryButtonWidget(
-                        country: e,
-                      ))
-                  .toList(),
-            );
-          },
-        ),
-        floatingActionButton: const _SelectAllButton(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      ),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CountryBloc, CountryState>(
+      builder: (context, state) {
+        return ListView(
+          children: state.countryModels
+              .map((e) => _CountryButtonWidget(
+                    country: e,
+                  ))
+              .toList(),
+        );
+      },
+    );
+  }
+}
+
+class _SaveButton extends StatelessWidget {
+  const _SaveButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = context.read<CountryBloc>();
+    return IconButton(
+      color: Colors.white,
+      onPressed: () {
+        bloc.add(CountrySaveButtonClicked());
+        // context.pop(true);
+      },
+      icon: const Icon(
+        Icons.save,
+        size: 30,
       ),
     );
   }
@@ -64,10 +90,10 @@ class _SelectAllButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<NewsBloc>();
+    final bloc = context.read<CountryBloc>();
     return FloatingActionButton(
       onPressed: () {
-        bloc.add(NewsSelectAllButtonClicked());
+        bloc.add(CountrySelectAllButtonClicked());
       },
       child: const Icon(Icons.check_box),
     );
@@ -84,7 +110,7 @@ class _CountryButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<NewsBloc>();
+    final bloc = context.read<CountryBloc>();
     return Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: ElevatedButton(

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "890443489927",
+    "firebase_url": "https://newsify-3174b-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "newsify-3174b",
+    "storage_bucket": "newsify-3174b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890443489927:android:2e9d28b72947bfdc42ce22",
+        "android_client_info": {
+          "package_name": "com.example.newsify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfvCZC3FYQlnMepMhLX3S-xiX1QM9v_mw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

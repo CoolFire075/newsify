@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:newsify/features/news/my_features/news_country.dart';
+import 'package:newsify/features/country/news_country.dart';
 
 class CountryModel extends Equatable {
   final NewsCountry country;
