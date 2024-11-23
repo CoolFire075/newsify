@@ -6,13 +6,13 @@ part 'news_pagination_response_dto.g.dart';
 @JsonSerializable()
 class NewsPaginationResponseDto extends Equatable {
   @JsonKey(name: 'limit', required: false, includeIfNull: false)
-  final int limit;
+  final int? limit;
   @JsonKey(name: 'offset', required: false, includeIfNull: false)
-  final int offset;
+  final int? offset;
   @JsonKey(name: 'count', required: false, includeIfNull: false)
-  final int count;
+  final int? count;
   @JsonKey(name: 'total', required: false, includeIfNull: false)
-  final int total;
+  final int? total;
 
   const NewsPaginationResponseDto({
     required this.limit,

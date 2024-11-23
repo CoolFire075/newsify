@@ -26,15 +26,17 @@ class CountryFirebaseService {
     }
     late bool needReps;
     List<String> list = [];
-    String string = snapshot.value.toString().substring(0, snapshot.value.toString().length - 1);
-    string.contains(',') ? needReps = true : false;
+    String string = snapshot.value.toString().substring(1, snapshot.value.toString().length - 1);
+    string.contains(',') ? needReps = true : needReps = false;
+    debugPrint("$needReps");
     while (needReps) {
-      final str = string.substring(0, string.indexOf(','));
+      final str = string.substring(0, 2);
       string = string.substring(string.indexOf(',') + 2, string.length);
       list.add(str);
-      if(!string.contains(',')) needReps = false;
+      if(string.length < 2) needReps = false;
+      debugPrint('###STRING => ${str}');
     }
-    debugPrint('#####FIREBASE_COUNTRIES${snapshot.value}');
+    debugPrint('#####FIREBASE_COUNTRIES${list}');
     return list;
   }
 }

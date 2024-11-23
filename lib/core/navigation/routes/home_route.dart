@@ -1,3 +1,3 @@
 class HomeRoute {
-  static const String name = '/';
+  static const String name = '/home';
 }

@@ -1,4 +1,4 @@
 abstract class LanguageRepository {
   Future saveLanguage(String language);
-  Future getLanguage();
+  Future<String?> getLanguage();
 }

@@ -2,9 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'news_data_model.freezed.dart';
 
-
 @freezed
-class NewsDataModel with _$NewsDataModel{
+class NewsDataModel with _$NewsDataModel {
   factory NewsDataModel({
     String? author,
     String? title,
@@ -16,6 +15,6 @@ class NewsDataModel with _$NewsDataModel{
     String? language,
     String? country,
     String? publishedAt,
-}) = _NewsDataModel;
-
+    @Default(false) bool isPostLiked,
+  }) = _NewsDataModel;
 }

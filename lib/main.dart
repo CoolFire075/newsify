@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:newsify/core/navigation/newsify_router.dart';
+import 'package:newsify/simple_bloc_observer.dart';
 import 'core/di/dependency_injection.dart';
 import 'features/news/presentation/bloc/news_bloc.dart';
 import 'firebase_options.dart';
@@ -15,6 +16,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   initDependencyInjection();
+  Bloc.observer = const SimpleBlocObserver();
   runApp(NewsifyApp(newsifyRouter: getIt()));
 }
 

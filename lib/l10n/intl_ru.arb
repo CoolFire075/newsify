@@ -72,5 +72,13 @@
 
   "settings" : "Настройки",
   "change_language" : "Изменить язык",
-  "change_country": "Изменить страну"
+  "change_country": "Изменить страну",
+
+  "news": "Новости",
+  "profile": "Профиль",
+  "favourite": "Нравится",
+
+  "login": "авторизоваться",
+  "other_features": "Другие возможности",
+  "hide": "Скрыть"
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:newsify/features/news/domain/models/news_data.dart';
 import 'package:newsify/features/news/domain/models/news_pagination_data.dart';
 import 'package:newsify/features/news/presentation/models/country_model.dart';
@@ -25,6 +26,7 @@ class NewsModelMapper {
   }
 
   NewsDataModel _mapNewsDataModel(NewsData domain) {
+    debugPrint(domain.url);
     return NewsDataModel(
       author: domain.author,
       title: domain.title,

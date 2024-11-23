@@ -16,13 +16,15 @@ class LanguageFirebaseService {
 
     }
   }
-  Future getLanguage() async {
+  Future<String?> getLanguage() async {
     final ref = FirebaseDatabase.instance.ref();
     final snapshot = await ref.child('language').get();
     if (snapshot.exists) {
       print('#####FIREBASE_Language${snapshot.value}');
+      return snapshot.value as String;
     } else {
       print('No data available.');
+      return null;
     }
   }
 }

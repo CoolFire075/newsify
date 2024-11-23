@@ -6,7 +6,6 @@ import 'package:newsify/features/news/presentation/models/language_model.dart';
 
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../generated/l10n.dart';
-import '../../../news/presentation/bloc/news_bloc.dart';
 
 class LanguagePage extends StatelessWidget {
   const LanguagePage({super.key});
@@ -17,34 +16,47 @@ class LanguagePage extends StatelessWidget {
       create: (context) => getIt<LanguageBloc>()..add(LanguageLoaded()),
       child: BlocListener<LanguageBloc, LanguageState>(
         listenWhen: (previous, current) => previous.needPop != current.needPop,
-  listener: (context, state) {
-    if (state.needPop) {
-      context.pop();
-    }
-  },
-  child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue,
-          title: Text(
-            S.of(context).choose_language,
-            style: const TextStyle(fontSize: 35),
+        listener: (context, state) {
+          print('needpop: ${state.needPop}');
+          if (state.needPop) {
+            context.pop();
+          }
+        },
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.blue,
+            title: Text(
+              S.of(context).choose_language,
+              style: const TextStyle(fontSize: 35),
+            ),
+            centerTitle: true,
           ),
-          centerTitle: true,
-        ),
-        body: BlocBuilder<LanguageBloc, LanguageState>(
-          builder: (context, state) {
-            return ListView(
-              children: state.languageModels
-                  .map((e) =>
-                  _LanguageButtonWidget(
-                    language: e,
-                  ))
-                  .toList(),
-            );
-          },
+          body: _Body(),
         ),
       ),
-),
+    );
+  }
+}
+
+class _Body extends StatelessWidget {
+  const _Body({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<LanguageBloc, LanguageState>(
+      builder: (context, state) {
+        final isLoading = state.isLoading;
+        if (isLoading) return const Center(child: CircularProgressIndicator());
+        return ListView(
+          children: state.languageModels
+              .map((e) => _LanguageButtonWidget(
+                    language: e,
+                  ))
+              .toList(),
+        );
+      },
     );
   }
 }
@@ -65,7 +77,7 @@ class _LanguageButtonWidget extends StatelessWidget {
         child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor:
-            WidgetStatePropertyAll(language.isSelected ? Colors.blue : Colors.grey.shade200),
+                WidgetStatePropertyAll(language.isSelected ? Colors.blue : Colors.grey.shade200),
           ),
           onPressed: () {
             bloc.add(LanguageButtonClicked(model: language));

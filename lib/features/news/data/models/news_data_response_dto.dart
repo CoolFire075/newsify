@@ -6,25 +6,25 @@ part 'news_data_response_dto.g.dart';
 @JsonSerializable()
 class NewsDataResponseDto extends Equatable {
   @JsonKey(name: 'author', required: false, includeIfNull: false)
-  final String author;
+  final String? author;
   @JsonKey(name: 'title', required: false, includeIfNull: false)
-  final String title;
+  final String? title;
   @JsonKey(name: 'description', required: false, includeIfNull: false)
-  final String description;
+  final String? description;
   @JsonKey(name: 'url', required: false, includeIfNull: false)
-  final String url;
+  final String? url;
   @JsonKey(name: 'source', required: false, includeIfNull: false)
-  final String source;
+  final String? source;
   @JsonKey(name: 'image', required: false, includeIfNull: false)
-  final String image;
+  final String? image;
   @JsonKey(name: 'category', required: false, includeIfNull: false)
-  final String category;
+  final String? category;
   @JsonKey(name: 'language', required: false, includeIfNull: false)
-  final String language;
+  final String? language;
   @JsonKey(name: 'country', required: false, includeIfNull: false)
-  final String country;
+  final String? country;
   @JsonKey(name: 'published_at', required: false, includeIfNull: false)
-  final String publishedAt;
+  final String? publishedAt;
 
   const NewsDataResponseDto({
     required this.author,

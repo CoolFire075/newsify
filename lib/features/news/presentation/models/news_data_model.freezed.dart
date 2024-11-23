@@ -26,6 +26,7 @@ mixin _$NewsDataModel {
   String? get language => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get publishedAt => throw _privateConstructorUsedError;
+  bool get isPostLiked => throw _privateConstructorUsedError;
 
   /// Create a copy of NewsDataModel
   /// with the given fields replaced by the non-null parameter values.
@@ -50,7 +51,8 @@ abstract class $NewsDataModelCopyWith<$Res> {
       String? category,
       String? language,
       String? country,
-      String? publishedAt});
+      String? publishedAt,
+      bool isPostLiked});
 }
 
 /// @nodoc
@@ -78,6 +80,7 @@ class _$NewsDataModelCopyWithImpl<$Res, $Val extends NewsDataModel>
     Object? language = freezed,
     Object? country = freezed,
     Object? publishedAt = freezed,
+    Object? isPostLiked = null,
   }) {
     return _then(_value.copyWith(
       author: freezed == author
@@ -120,6 +123,10 @@ class _$NewsDataModelCopyWithImpl<$Res, $Val extends NewsDataModel>
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isPostLiked: null == isPostLiked
+          ? _value.isPostLiked
+          : isPostLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -142,7 +149,8 @@ abstract class _$$NewsDataModelImplCopyWith<$Res>
       String? category,
       String? language,
       String? country,
-      String? publishedAt});
+      String? publishedAt,
+      bool isPostLiked});
 }
 
 /// @nodoc
@@ -168,6 +176,7 @@ class __$$NewsDataModelImplCopyWithImpl<$Res>
     Object? language = freezed,
     Object? country = freezed,
     Object? publishedAt = freezed,
+    Object? isPostLiked = null,
   }) {
     return _then(_$NewsDataModelImpl(
       author: freezed == author
@@ -210,6 +219,10 @@ class __$$NewsDataModelImplCopyWithImpl<$Res>
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as String?,
+      isPostLiked: null == isPostLiked
+          ? _value.isPostLiked
+          : isPostLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -227,7 +240,8 @@ class _$NewsDataModelImpl implements _NewsDataModel {
       this.category,
       this.language,
       this.country,
-      this.publishedAt});
+      this.publishedAt,
+      this.isPostLiked = false});
 
   @override
   final String? author;
@@ -249,10 +263,13 @@ class _$NewsDataModelImpl implements _NewsDataModel {
   final String? country;
   @override
   final String? publishedAt;
+  @override
+  @JsonKey()
+  final bool isPostLiked;
 
   @override
   String toString() {
-    return 'NewsDataModel(author: $author, title: $title, description: $description, url: $url, source: $source, image: $image, category: $category, language: $language, country: $country, publishedAt: $publishedAt)';
+    return 'NewsDataModel(author: $author, title: $title, description: $description, url: $url, source: $source, image: $image, category: $category, language: $language, country: $country, publishedAt: $publishedAt, isPostLiked: $isPostLiked)';
   }
 
   @override
@@ -273,12 +290,14 @@ class _$NewsDataModelImpl implements _NewsDataModel {
                 other.language == language) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.publishedAt, publishedAt) ||
-                other.publishedAt == publishedAt));
+                other.publishedAt == publishedAt) &&
+            (identical(other.isPostLiked, isPostLiked) ||
+                other.isPostLiked == isPostLiked));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, author, title, description, url,
-      source, image, category, language, country, publishedAt);
+      source, image, category, language, country, publishedAt, isPostLiked);
 
   /// Create a copy of NewsDataModel
   /// with the given fields replaced by the non-null parameter values.
@@ -300,7 +319,8 @@ abstract class _NewsDataModel implements NewsDataModel {
       final String? category,
       final String? language,
       final String? country,
-      final String? publishedAt}) = _$NewsDataModelImpl;
+      final String? publishedAt,
+      final bool isPostLiked}) = _$NewsDataModelImpl;
 
   @override
   String? get author;
@@ -322,6 +342,8 @@ abstract class _NewsDataModel implements NewsDataModel {
   String? get country;
   @override
   String? get publishedAt;
+  @override
+  bool get isPostLiked;
 
   /// Create a copy of NewsDataModel
   /// with the given fields replaced by the non-null parameter values.

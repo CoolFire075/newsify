@@ -9,9 +9,9 @@ part 'news_main_response_dto.g.dart';
 @JsonSerializable()
 class NewsMainResponseDto extends Equatable {
   @JsonKey(name: 'pagination', required: false, includeIfNull: false)
-  final NewsPaginationResponseDto pagination;
+  final NewsPaginationResponseDto? pagination;
   @JsonKey(name: 'data', required: false, includeIfNull: false)
-  final List<NewsDataResponseDto> data;
+  final List<NewsDataResponseDto>? data;
 
   const NewsMainResponseDto({
     required this.pagination,

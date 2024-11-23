@@ -49,6 +49,8 @@ class _Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CountryBloc, CountryState>(
       builder: (context, state) {
+        final isLoading = state.isLoading;
+        if (isLoading) return Center(child: CircularProgressIndicator());
         return ListView(
           children: state.countryModels
               .map((e) => _CountryButtonWidget(

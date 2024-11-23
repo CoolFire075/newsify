@@ -13,7 +13,7 @@ class LanguageRepositoryImpl extends LanguageRepository {
   }
 
   @override
-  Future getLanguage() {
+  Future<String?> getLanguage() {
     return service.getLanguage();
   }
 }

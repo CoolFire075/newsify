@@ -9,8 +9,8 @@ import '../../domain/models/news_main_data.dart';
 class NewsMapper {
   NewsMainData mapNewsData(NewsMainResponseDto dto) {
     return NewsMainData(
-      pagination: _mapNewsPaginationData(dto.pagination),
-      data: dto.data.map((e) => _mapNewsListData(e)).toList(),
+      pagination: _mapNewsPaginationData(dto.pagination!),
+      data: dto.data?.map((e) => _mapNewsListData(e)).toList(),
     );
   }
 

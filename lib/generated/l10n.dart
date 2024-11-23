@@ -749,6 +749,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Новости`
+  String get news {
+    return Intl.message(
+      'Новости',
+      name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Профиль`
+  String get profile {
+    return Intl.message(
+      'Профиль',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Нравится`
+  String get favourite {
+    return Intl.message(
+      'Нравится',
+      name: 'favourite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `авторизоваться`
+  String get login {
+    return Intl.message(
+      'авторизоваться',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Другие возможности`
+  String get other_features {
+    return Intl.message(
+      'Другие возможности',
+      name: 'other_features',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Скрыть`
+  String get hide {
+    return Intl.message(
+      'Скрыть',
+      name: 'hide',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,7 +10,7 @@ class LanguageInteractor {
   Future saveLanguage(String language){
     return repository.saveLanguage(language);
   }
-  Future getLanguage() {
+  Future<String?> getLanguage() {
     return repository.getLanguage();
   }
 }
